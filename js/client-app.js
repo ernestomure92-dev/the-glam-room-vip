@@ -172,6 +172,8 @@ function formatDate(timestamp) {
     return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short' });
 }
 
+// Al final del archivo, debe estar así:
+
 function logout() {
     localStorage.removeItem('glamRoomPhone');
     location.reload();
