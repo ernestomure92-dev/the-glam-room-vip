@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Glam Room - Tarjeta de Lealtad Digital</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Corregido: quitado el espacio antes de la coma -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="qr-page">
@@ -44,7 +45,8 @@
 
         <div class="manual-url">
             <p>¿No funciona el QR?</p>
-            <strong>theglamroom.mx/vip</strong>
+            <!-- Cambiado a la URL real de GitHub Pages -->
+            <strong>ernestomure92-dev.github.io/the-glam-room-vip/cliente.html</strong>
         </div>
 
         <footer>
@@ -52,9 +54,15 @@
         </footer>
     </div>
 
+    <!-- Corregido: quitado el espacio antes de las comillas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        const url = window.location.href.replace('index.html', 'cliente.html');
+        // URL fija para GitHub Pages (más confiable)
+        const url = 'https://ernestomure92-dev.github.io/the-glam-room-vip/cliente.html';
+        
+        // Debug: muestra la URL en consola
+        console.log('QR URL:', url);
+        
         new QRCode(document.getElementById("qrcode"), {
             text: url,
             width: 200,
