@@ -98,13 +98,14 @@ function updateCardDisplay() {
 function updateRewards(stamps) {
     const inCycle = stamps % 10;
     const cycles = Math.floor(stamps / 10);
+    const rewardsClaimed = currentClient.rewardsClaimed || {};
     
     // Recompensa 5 sellos
     const r5 = document.getElementById('reward5');
     const check5 = document.getElementById('check5');
-    const has5Reward = inCycle >= 5 || cycles > (currentClient.rewardsClaimed?.10 || 0);
+    const has5Reward = inCycle >= 5 || cycles > (rewardsClaimed[10] || 0);
     
-    if (has5Reward && !(currentClient.rewardsClaimed?.5 >= cycles + (inCycle >= 5 ? 1 : 0))) {
+    if (has5Reward && !(rewardsClaimed[5] >= cycles + (inCycle >= 5 ? 1 : 0))) {
         r5.classList.add('unlocked');
         check5.textContent = '✨';
     } else {
@@ -117,7 +118,7 @@ function updateRewards(stamps) {
     const check10 = document.getElementById('check10');
     const has10Reward = inCycle === 0 && stamps > 0;
     
-    if (has10Reward && !(currentClient.rewardsClaimed?.10 >= cycles)) {
+    if (has10Reward && !(rewardsClaimed[10] >= cycles)) {
         r10.classList.add('unlocked');
         check10.textContent = '🎁';
     } else {
