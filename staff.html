@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mi Tarjeta The Glam Room</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="client-app">
+    <div id="app">
+        <!-- Login/Registro -->
+        <section id="auth-screen" class="screen active">
+            <div class="floating-hearts">
+                <span>💕</span><span>💖</span><span>💗</span>
+            </div>
+            
+            <div class="auth-container">
+                <div class="brand-intro">
+                    <div class="sparkle-icon">✨</div>
+                    <h1>The Glam Room</h1>
+                    <p>Tarjeta de Lealtad</p>
+                </div>
+
+                <div class="auth-card">
+                    <h2>Bienvenida</h2>
+                    <p class="auth-subtitle">Ingresa tu número para ver tu tarjeta</p>
+
+                    <form id="loginForm">
+                        <div class="phone-input">
+                            <span class="prefix">+52</span>
+                            <input type="tel" id="phoneInput" placeholder="55 1234 5678" maxlength="10" required>
+                        </div>
+                        
+                        <div id="nameGroup" class="name-input" style="display: none;">
+                            <input type="text" id="nameInput" placeholder="¿Cómo te llamas?">
+                        </div>
+
+                        <button type="submit" class="btn-pink">
+                            <span>Ver mi tarjeta</span>
+                            <div class="btn-shine"></div>
+                        </button>
+                    </form>
+
+                    <p class="hint-text">Primera vez? Crearemos tu cuenta automáticamente 💕</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tarjeta Digital -->
+        <section id="card-screen" class="screen">
+            <header class="app-header">
+                <div class="header-title">The Glam Room</div>
+                <button onclick="logout()" class="btn-icon">↪</button>
+            </header>
+
+            <!-- Tarjeta Física Digital -->
+            <div class="digital-card">
+                <div class="card-bg-pattern"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <span class="card-label">Tarjeta de Lealtad</span>
+                        <div class="card-stars">✨</div>
+                    </div>
+                    
+                    <div class="client-name" id="clientName">Nombre</div>
+                    
+                    <div class="hearts-grid" id="heartsGrid">
+                        <!-- 10 corazones generados con JS -->
+                    </div>
+
+                    <div class="card-footer">
+                        <span class="thanks">¡Gracias por tu visita!</span>
+                        <span class="card-num" id="cardPhone">••••</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado de Recompensas -->
+            <div class="rewards-status">
+                <h3>Tus Recompensas</h3>
+                
+                <div class="reward-item" id="reward5">
+                    <div class="reward-icon">🤍</div>
+                    <div class="reward-info">
+                        <span class="reward-title">10% de Descuento</span>
+                        <span class="reward-desc">En tu 5ta visita</span>
+                    </div>
+                    <div class="reward-check" id="check5">🔒</div>
+                </div>
+
+                <div class="reward-item" id="reward10">
+                    <div class="reward-icon">💖</div>
+                    <div class="reward-info">
+                        <span class="reward-title">15% de Descuento</span>
+                        <span class="reward-desc">En tu 10ma visita</span>
+                    </div>
+                    <div class="reward-check" id="check10">🔒</div>
+                </div>
+            </div>
+
+            <!-- Acción -->
+            <div class="action-box">
+                <button id="getStampBtn" class="btn-pink btn-large" onclick="generateCode()">
+                    Obtener Sello
+                </button>
+
+                <div id="codeReveal" class="code-display" style="display: none;">
+                    <p class="code-title">Muestra este código:</p>
+                    <div class="code-big" id="stampCode">0000</div>
+                    <div class="code-bar">
+                        <div class="bar-progress"></div>
+                    </div>
+                    <p class="code-time">Válido por 5 minutos</p>
+                    <button onclick="hideCode()" class="btn-close">Cerrar</button>
+                </div>
+            </div>
+
+            <!-- Historial -->
+            <div class="history-section">
+                <h4>Últimas Visitas</h4>
+                <div id="visitHistory" class="history-list">
+                    <!-- Dinámico -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="heart-loader">💕</div>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <script src="js/firebase-config.js"></script>
+    <script src="js/client-app.js"></script>
+</body>
+</html>
