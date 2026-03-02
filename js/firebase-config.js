@@ -21,3 +21,5 @@ const database = firebase.database();
 const clientsRef = database.ref('clients');
 const visitsRef = database.ref('visits');
 const codesRef = database.ref('codes');
+
+console.log('✅ Firebase conectado correctamente');
