@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Glam Room - Tarjeta de Lealtad Digital</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Corregido: quitado el espacio antes de la coma -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="qr-page">
@@ -26,27 +25,28 @@
             <p class="scan-hint">Apunta tu cámara aquí</p>
         </div>
 
-        <div class="rewards-preview">
-            <h3>Tus Recompensas</h3>
-            <div class="reward-steps">
-                <div class="step">
-                    <span class="heart">🤍</span>
-                    <span class="num">5</span>
-                    <span class="label">10% OFF</span>
+        <!-- Instagram Preview -->
+        <div class="instagram-preview">
+            <h3>Síguenos en Instagram</h3>
+            <a href="https://www.instagram.com/theglamroom.mx/" target="_blank" class="insta-link">
+                <div class="insta-card">
+                    <div class="insta-header">
+                        <div class="insta-avatar">✨</div>
+                        <div class="insta-info">
+                            <span class="insta-name">@theglamroom.mx</span>
+                            <span class="insta-followers">The Glam Room</span>
+                        </div>
+                    </div>
+                    <div class="insta-bio">
+                        💅 Uñas • Pestañas • Cejas<br>
+                        📍 Tu ciudad<br>
+                        ✨ Experiencia Glam
+                    </div>
+                    <div class="insta-button">
+                        <span>📷 Ver perfil</span>
+                    </div>
                 </div>
-                <div class="arrow">→</div>
-                <div class="step">
-                    <span class="heart">💖</span>
-                    <span class="num">10</span>
-                    <span class="label">15% OFF</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="manual-url">
-            <p>¿No funciona el QR?</p>
-            <!-- Cambiado a la URL real de GitHub Pages -->
-            <strong>ernestomure92-dev.github.io/the-glam-room-vip/cliente.html</strong>
+            </a>
         </div>
 
         <footer>
@@ -54,13 +54,10 @@
         </footer>
     </div>
 
-    <!-- Corregido: quitado el espacio antes de las comillas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        // URL fija para GitHub Pages (más confiable)
         const url = 'https://ernestomure92-dev.github.io/the-glam-room-vip/cliente.html';
         
-        // Debug: muestra la URL en consola
         console.log('QR URL:', url);
         
         new QRCode(document.getElementById("qrcode"), {
