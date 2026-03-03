@@ -1015,3 +1015,93 @@ footer {
         letter-spacing: 5px;
     }
 }
+/* Instagram Preview */
+.instagram-preview {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.instagram-preview h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pink-deep);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.insta-link {
+    text-decoration: none;
+    display: block;
+}
+
+.insta-card {
+    background: linear-gradient(135deg, #f8f0f3 0%, #ffe4ec 100%);
+    border-radius: 20px;
+    padding: 25px;
+    border: 2px solid var(--pink);
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.insta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+.insta-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.insta-avatar {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #d63384, #ff69b4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border: 3px solid white;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.insta-info {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.insta-name {
+    font-weight: 700;
+    color: var(--pink-deep);
+    font-size: 16px;
+}
+
+.insta-followers {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 3px;
+}
+
+.insta-bio {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.insta-button {
+    background: linear-gradient(135deg, #d63384, #ff69b4);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+}
