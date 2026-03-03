@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Glam Room - Imprimir QR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @media print {
+            body { 
+                margin: 0; 
+                background: white;
+            }
+            .no-print { 
+                display: none; 
+            }
+            .print-card {
+                box-shadow: none;
+                border: 2px solid #ffb6c1;
+            }
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe4ec 0%, #f8c8dc 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .print-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(214, 51, 132, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .print-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff69b4, #d63384, #ff69b4);
+        }
+        
+        .hearts-decoration {
+            font-size: 40px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .logo-glam {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #d63384;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+        
+        .qr-wrapper {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 3px dashed #ffb6c1;
+        }
+        
+        #qrcode {
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.15);
+        }
+        
+        #qrcode img {
+            display: block;
+        }
+        
+        .scan-text {
+            color: #d63384;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        
+        .benefits {
+            background: linear-gradient(135deg, #fff8fa 0%, #fff0f5 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: left;
+            border: 2px solid #ffe4ec;
+        }
+        
+        .benefits h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d63384;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 12px 0;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .benefit-icon {
+            font-size: 20px;
+        }
+        
+        .instagram-box {
+            background: linear-gradient(135deg, #f8f0f3 0%, #ffe4ec 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .instagram-box a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        .no-print {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .btn-print {
+            background: linear-gradient(135deg, #d63384 0%, #ff69b4 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.3);
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-print:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.4);
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff8fa;
+            border-radius: 15px;
+            max-width: 450px;
+            text-align: left;
+        }
+        
+        .instructions h4 {
+            color: #d63384;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-card">
+        <div class="hearts-decoration">💕</div>
+        
+        <div class="logo-glam">The Glam Room</div>
+        <h1>Tarjeta de Lealtad Digital</h1>
+        <p class="subtitle">¡Escanea y comienza a ganar!</p>
+        
+        <div class="qr-wrapper">
+            <div id="qrcode"></div>
+        </div>
+        
+        <p class="scan-text">Apunta tu cámara aquí</p>
+        
+        <div class="benefits">
+            <h3>🎁 Tus Recompensas</h3>
+            <div class="benefit-item">
+                <span class="benefit-icon">💕</span>
+                <span><strong>5 visitas</strong> = 10% de descuento</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">💖</span>
+                <span><strong>10 visitas</strong> = 15% de descuento</span>
+            </div>
+        </div>
+        
+        <div class="instagram-box">
+            <a href="https://www.instagram.com/theglamroom.mx/" target="_blank">
+                <span>📷</span>
+                <span>@theglamroom.mx</span>
+            </a>
+        </div>
+        
+        <p class="footer-text">Gracias por tu preferencia ✨</p>
+    </div>
+    
+    <div class="no-print">
+        <button onclick="window.print()" class="btn-print">
+            🖨️ Imprimir / Guardar como PDF
+        </button>
+        
+        <div class="instructions">
+            <h4>📋 Instrucciones:</h4>
+            <ol>
+                <li>Presiona el botón "Imprimir" arriba</li>
+                <li>Selecciona "Guardar como PDF" (o tu impresora)</li>
+                <li>Configura: Tamaño A4, Sin márgenes, Vertical</li>
+                <li>Guarda y listo para imprimir en cualquier lugar</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // Generar QR
+        new QRCode(document.getElementById("qrcode"), {
+            text: 'https://ernestomure92-dev.github.io/the-glam-room-vip/cliente.html',
+            width: 250,
+            height: 250,
+            colorDark: "#d63384",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>
